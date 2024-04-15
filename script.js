@@ -21,29 +21,38 @@ function drawBoard() {
         for (let j = 0; j < rows; j++) {
             if ((i + j) % 2 == 0) {
                 fill(250, 250, 250);
-              } else {
+            } else {
                 fill(0, 0, 0);
-              }
+            }
             rect(i * size, j * size, size, size);
         }
-      }
+    }
 }
 
 function placePawns() {
-    for (let i = 0; i <= nrPawns; i++) {
-      let x = floor(random(cols));
-      let y = floor(random(rows));
-      pawns.push({x: x, y: y});
+    while (pawns.length < nrPawns) {
+        let x = floor(random(cols));
+        let y = floor(random(rows));
+        let isOccupied = false;
+        for (let pawn of pawns) {
+            if (pawn.x == x && pawn.y == y) {
+                isOccupied = true;
+                break;
+            }
+        }
+        if (!isOccupied) {
+            pawns.push({ x: x, y: y });
+        }
     }
-  }
-  
-  function drawPawns() {
+}
+
+function drawPawns() {
     fill("gray");
     for (let pawn of pawns) {
-      circle(pawn.x * size + size / 2, pawn.y * size + size / 2, size / 2, size / 2);
+        circle(pawn.x * size + size / 2, pawn.y * size + size / 2, size / 2, size / 2);
     }
-  }
-  
+}
+
 
 
 
