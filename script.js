@@ -17,6 +17,11 @@ function draw() {
 function drawBoard() {
     for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
+            if ((i + j) % 2 == 0) {
+                fill(250, 250, 250);
+              } else {
+                fill(0, 0, 0);
+              }
             rect(i * size, j * size, size, size);
         }
       }
