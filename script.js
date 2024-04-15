@@ -6,12 +6,14 @@ const size = 70;
 
 function setup() {
     createCanvas(800, 800);
+    placePawns();
 
 }
 
 function draw() {
     background("white");
     drawBoard();
+    drawPawns()
 }
 
 function drawBoard() {
@@ -26,6 +28,23 @@ function drawBoard() {
         }
       }
 }
+
+function placePawns() {
+    for (let i = 0; i <= nrPawns; i++) {
+      let x = floor(random(cols));
+      let y = floor(random(rows));
+      pawns.push({x: x, y: y});
+    }
+  }
+  
+  function drawPawns() {
+    fill("gray");
+    for (let pawn of pawns) {
+      circle(pawn.x * size + size / 2, pawn.y * size + size / 2, size / 2, size / 2);
+    }
+  }
+  
+
 
 
 
