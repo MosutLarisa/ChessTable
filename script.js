@@ -10,5 +10,17 @@ function setup() {
 }
 
 function draw() {
-    background("white")
+    background("white");
+    drawBoard();
 }
+
+function drawBoard() {
+    for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+            rect(i * size, j * size, size, size);
+        }
+      }
+}
+
+
+
